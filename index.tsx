@@ -42,13 +42,18 @@ function App() {
           message: 'Write a friendly, short greeting to start our conversation. Include a 😊.'
         });
 
-        let greeting = '';
-        setMessages([{ role: 'ai', text: '' }]); // Initialize AI message
+        // Add a placeholder for the AI message that will be populated by the stream
+        setMessages(prev => [...prev, { role: 'ai', text: '' }]);
 
+        let aiResponse = '';
         for await (const chunk of response) {
-          greeting += chunk.text;
-          // Update the last message in the state with the streaming content
-          setMessages([{ role: 'ai', text: greeting }]);
+          aiResponse += chunk.text;
+          // Update the last message (the AI's) with the streaming content
+          setMessages(prev => {
+              const newMessages = [...prev];
+              newMessages[newMessages.length - 1].text = aiResponse;
+              return newMessages;
+          });
         }
       } catch (error) {
         console.error('Failed to generate initial greeting:', error);
