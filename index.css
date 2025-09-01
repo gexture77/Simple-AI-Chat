@@ -1,11 +1,17 @@
 :root {
+  /* Dark Theme Palette */
   --primary-color: #007bff;
-  --light-gray: #f0f2f5;
-  --border-color: #ddd;
-  --user-bg: #0084ff;
-  --user-text: #fff;
-  --ai-bg: #e4e6eb;
-  --ai-text: #000;
+  --background-color: #121212;
+  --app-bg: #1e1e1e;
+  --border-color: #333;
+  --user-bg: #005c99;
+  --user-text: #ffffff;
+  --ai-bg: #3a3a3a;
+  --ai-text: #f1f1f1;
+  --input-bg: #2c2c2c;
+  --input-text: #f1f1f1;
+  --header-bg: var(--primary-color);
+  --header-text: #ffffff;
 }
 
 * {
@@ -17,7 +23,8 @@
 body, html, #root {
   height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  background-color: var(--light-gray);
+  background-color: var(--background-color);
+  color: var(--ai-text);
 }
 
 .app {
@@ -26,14 +33,14 @@ body, html, #root {
   height: 100vh;
   max-width: 800px;
   margin: 0 auto;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background-color: var(--app-bg);
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
 }
 
 header {
   padding: 1rem;
-  background-color: var(--primary-color);
-  color: white;
+  background-color: var(--header-bg);
+  color: var(--header-text);
   text-align: center;
   font-size: 1.5rem;
   font-weight: bold;
@@ -101,7 +108,7 @@ header {
 
 .message.ai code {
   font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-  background-color: rgba(0,0,0,0.07);
+  background-color: rgba(255, 255, 255, 0.1);
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
@@ -112,10 +119,10 @@ header {
 }
 
 .message.ai blockquote {
-  border-left: 4px solid #ccc;
+  border-left: 4px solid #555;
   padding-left: 1rem;
   margin: 0.5rem 0;
-  color: #666;
+  color: #bbb;
 }
 
 .message.ai a {
@@ -134,15 +141,14 @@ header {
 }
 
 .message.ai th, .message.ai td {
-  border: 1px solid #ccc;
+  border: 1px solid #555;
   padding: 0.5rem;
   text-align: left;
 }
 
 .message.ai th {
-  background-color: var(--light-gray);
+  background-color: #444;
 }
-
 
 .loader {
   display: flex;
@@ -153,7 +159,7 @@ header {
 .loader .dot {
   width: 8px;
   height: 8px;
-  background-color: #888;
+  background-color: #bbb;
   border-radius: 50%;
   animation: bounce 1.4s infinite ease-in-out both;
 }
@@ -170,7 +176,7 @@ header {
   display: flex;
   padding: 1rem;
   border-top: 1px solid var(--border-color);
-  background-color: #fff;
+  background-color: var(--app-bg);
 }
 
 .input-form input {
@@ -181,6 +187,8 @@ header {
   font-size: 1rem;
   margin-right: 0.5rem;
   outline: none;
+  background-color: var(--input-bg);
+  color: var(--input-text);
 }
 
 .input-form input:focus {
@@ -204,7 +212,7 @@ header {
 }
 
 .input-form button:disabled {
-  background-color: #a0c7ff;
+  background-color: #004c99;
   cursor: not-allowed;
 }
 

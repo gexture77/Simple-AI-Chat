@@ -26,8 +26,8 @@ function App() {
 
   // Initialize the Gemini AI and chat
   useEffect(() => {
-    // Correctly use API_KEY from environment variables
-    const ai = new GoogleGenAI({apiKey: "AIzaSyDbKVW5tpx3xyhW5zfGzMdHmvH1UOKCci4"});
+    // Correctly use API_KEY from environment variables for security
+    const ai = new GoogleGenAI({apiKey: process.env.API_KEY});
     
     // Create a chat instance with the specified model
     chatRef.current = ai.chats.create({
